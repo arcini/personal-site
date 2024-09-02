@@ -1,33 +1,47 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
 
-function MainPage({toggleAbout, toggleProjects, toggleContact}) {
+function MainPage({}) {
   return (
     <div className="App">
-        <div className="Big-Name">Alex Cini</div>
-        <div class="break"></div> 
-        <div className='Main-List'>
-          <button onClick={() => toggleAbout() }>
-            <div className='Main-List-Element'>
-              <div className='Main-List-Bullet' style={{color: 'maroon'}}>▼</div>
-              <div className='Main-List-Text'>About Me</div>
-            </div>
-          </button>
-          <button onClick={() => toggleProjects() }>
-            <div className='Main-List-Element'>
-              <div className='Main-List-Bullet' style={{color: 'forestgreen'}}>▼</div>
-              <div className='Main-List-Text'>Projects</div>
-            </div>
-          </button>
-          <button onClick={() => toggleContact() }>
-            <div className='Main-List-Element'>
-              <div className='Main-List-Bullet' style={{color: 'darkblue'}}>▼</div>
-              <div className='Main-List-Text'>Contact</div>
-            </div>
-          </button>
-        </div>
     </div>
   );
+}
+
+function Icon({imgName, caption}) {
+  return (
+    <div className="Clickable-Icon">
+      <img src={imgName} width={128}></img>
+      <p>{caption}</p>
+    </div>
+  )
+}
+
+function Icons({toggleAbout, toggleProjects, toggleContact}) {
+  return (
+    <div className="Icons-Container">
+      <button onClick={() => toggleAbout() }>
+        <Icon 
+          imgName='clippy.png'
+          caption='About Me'
+        />
+      </button>
+      <div class="break"></div> 
+      <button onClick={() => toggleProjects() }>
+        <Icon 
+          imgName='projects.png'
+          caption='Projects'
+        />
+      </button>
+      <div class="break"></div> 
+      <button onClick={() => toggleContact() }>
+        <Icon 
+          imgName='contact_card.png'
+          caption='Contact'
+        />
+      </button>
+    </div>
+  )
 }
 
 function AboutMe() {
@@ -76,14 +90,16 @@ function App() {
   
   return (
     <div>
-      <MainPage 
-        toggleAbout={toggleAbout}
-        toggleProjects={toggleProjects}
-        toggleContact={toggleContact}
+      <MainPage
       />
       {aboutIsOpen && <AboutMe />}
       {projectsIsOpen && <Projects />}
       {contactIsOpen && <Contact />}
+      <Icons
+        toggleAbout={toggleAbout}
+        toggleProjects={toggleProjects}
+        toggleContact={toggleContact}
+      />
     </div>
   )
 }
