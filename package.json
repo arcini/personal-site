@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "homepage": "acini.fyi",
+  "homepage": "https://acini.fyi",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
