@@ -22,7 +22,7 @@ function Icons({setAboutIsOpen, setProjectsIsOpen, setContactIsOpen}) {
     <div className="Icons-Container">
       <button onClick={() => setAboutIsOpen(true) } className="Icon-Button">
         <Icon 
-          imgName='clippy.png'
+          imgName='aboutme.png'
           caption='About Me'
         />
       </button>
@@ -36,7 +36,7 @@ function Icons({setAboutIsOpen, setProjectsIsOpen, setContactIsOpen}) {
       <div className="break"></div> 
       <button onClick={() => setContactIsOpen(true) } className="Icon-Button">
         <Icon 
-          imgName='contact_card.png'
+          imgName='contact-card.png'
           caption='Contact'
         />
       </button>
@@ -80,7 +80,9 @@ function Contact({ setContactIsOpen }) {
       </div>
       <div className="Window-Content-Area">
         <h1>Contact</h1>
-        <a href="mailto:alexrcini@gmail.com">alexrcini@gmail.com</a>
+        <h3>Alex Cini</h3>
+        <h3>Email: <a href="mailto:alexrcini@gmail.com">alexrcini@gmail.com</a></h3>
+        <h3>Cell: <a href="tel:+13367057799">(336) 705-7799</a></h3>
       </div>
     </div>
   )
@@ -104,15 +106,30 @@ function ClockDiv() {
   return <div className="Clock">{time}</div>
 }
 
-function BottomBar() {
+function BottomBarMinimized({ linkURL, imageSource, textContent, quickbarHeight }) {
+  return (
+    <a className="No-Style-a" href={linkURL} target="_blank" rel="noopener noreferrer">
+    <div className="Bottom-Bar-Minimized-Wrapper">
+      <div className="Bottom-Bar-Minimized">
+        <img src={imageSource} height={quickbarHeight} />
+        <p>{textContent}</p>
+      </div>
+    </div>
+  </a>
+  )
+}
+
+function BottomBar({ changeBackground }) {
   const quickbarHeight = 28;
 
   return (
     <div className="Bottom-Bar-Border-Wrapper">
       <div className="Bottom-Bar">
         <div className="Bottom-Bar-Left">
-          <button>
-            <img src="win98_start.png" height={36} />
+          <button onClick={changeBackground}>
+            <div className="Start-Button-Wrapper">
+              <img className="Start-Button" src="win98_start.png" height={30} />
+            </div>
           </button>
           <p className="Bottom-Bar-Pipe"></p>
           <div className="Bottom-Bar-Seperator-Wrapper">
@@ -132,12 +149,25 @@ function BottomBar() {
           <div className="Bottom-Bar-Seperator-Wrapper">
             <p className="Bottom-Bar-Seperator"></p>
           </div>
+          <BottomBarMinimized 
+            linkURL='https://github.com/arcini'
+            imageSource='github.svg'
+            textContent='My Github'
+            quickbarHeight={quickbarHeight}/>
+          <BottomBarMinimized 
+            linkURL='https://www.linkedin.com/in/alex-c-68b1a6137/'
+            imageSource='linkedin.svg'
+            textContent='My LinkedIn'
+            quickbarHeight={quickbarHeight}/>
         </div>
 
 
-
-        <div className="Clock-Wrapper">
-          <ClockDiv />
+      
+        <div className="Bottom-Bar-Right">
+          <p className="Bottom-Bar-Pipe"></p>
+          <div className="Clock-Wrapper">
+            <ClockDiv />
+          </div>
         </div>
       </div>
     </div>
@@ -148,9 +178,45 @@ function App() {
   const [aboutIsOpen, setAboutIsOpen] = useState(false);
   const [projectsIsOpen, setProjectsIsOpen] = useState(false);
   const [contactIsOpen, setContactIsOpen] = useState(false);
+  const [backgroundClassName, setBackgroundClassName] = useState("Background-1");
+
+  const changeBackground = () => {
+    switch (backgroundClassName) {
+      case 'Background-1':
+        setBackgroundClassName("Background-2");
+        break;
+      case 'Background-2':
+        setBackgroundClassName("Background-3");
+        break;
+      case 'Background-3':
+        setBackgroundClassName("Background-4");
+        break;
+      case 'Background-4':
+        setBackgroundClassName("Background-5");
+        break;
+      case 'Background-5':
+        setBackgroundClassName("Background-6");
+        break;
+      case 'Background-6':
+        setBackgroundClassName("Background-7");
+        break;
+      case 'Background-7':
+        setBackgroundClassName("Background-8");
+        break;
+      case 'Background-8':
+        setBackgroundClassName("Background-9");
+        break;
+      case 'Background-9':
+        setBackgroundClassName("Background-10");
+        break;
+      case 'Background-10':
+        setBackgroundClassName("Background-1");
+        break;
+    }
+  };
   
   return (
-    <div>
+    <div className={backgroundClassName}>
       <MainPage
       />
       {aboutIsOpen && <AboutMe setAboutIsOpen={setAboutIsOpen}/>}
@@ -161,7 +227,8 @@ function App() {
         setProjectsIsOpen={setProjectsIsOpen}
         setContactIsOpen={setContactIsOpen}
       />
-      <BottomBar />
+      <BottomBar
+        changeBackground={changeBackground} />
     </div>
   )
 }

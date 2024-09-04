@@ -1,10 +1,87 @@
-html {
+.Background-1 {
   background-color: #e8e8e8;
   opacity: 1;
   background: linear-gradient(135deg, #bdbdbd55 25%, transparent 25%) -5px 0/ 10px 10px, 
               linear-gradient(225deg, #bdbdbd 25%, transparent 25%) -5px 0/ 10px 10px, 
               linear-gradient(315deg, #bdbdbd55 25%, transparent 25%) 0px 0/ 10px 10px, 
               linear-gradient(45deg, #bdbdbd 25%, #e8e8e8 25%) 0px 0/ 10px 10px;
+}
+
+.Background-2 {
+  background-color: #d565cf;
+  opacity: 1;
+  background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #d565cf 10px ), 
+                     repeating-linear-gradient( #902a8a55, #902a8a );
+}
+
+.Background-3 {
+  background-color: #00ff34;
+  opacity: 1;
+  background-image:   linear-gradient(30deg, #c0ffd0 12%, transparent 12.5%, transparent 87%, #c0ffd0 87.5%, #c0ffd0), 
+                      linear-gradient(150deg, #c0ffd0 12%, transparent 12.5%, transparent 87%, #c0ffd0 87.5%, #c0ffd0), 
+                      linear-gradient(30deg, #c0ffd0 12%, transparent 12.5%, transparent 87%, #c0ffd0 87.5%, #c0ffd0), 
+                      linear-gradient(150deg, #c0ffd0 12%, transparent 12.5%, transparent 87%, #c0ffd0 87.5%, #c0ffd0), 
+                      linear-gradient(60deg, #c0ffd077 25%, transparent 25.5%, transparent 75%, #c0ffd077 75%, #c0ffd077), 
+                      linear-gradient(60deg, #c0ffd077 25%, transparent 25.5%, transparent 75%, #c0ffd077 75%, #c0ffd077);
+  background-size: 20px 35px;
+  background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+}
+
+.Background-4 {
+  background-color: #5898ff;
+  opacity: 1;
+  background-image:  radial-gradient(#7f0088 0.5px, transparent 0.5px), radial-gradient(#7f0088 0.5px, #5898ff 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0,10px 10px;
+}
+
+.Background-5 {
+  background-color: #bef9ff;
+  opacity: 1;
+  background-image: radial-gradient(circle at center center, #2aebf9, #bef9ff), 
+                    repeating-radial-gradient(circle at center center, #2aebf9, #2aebf9, 10px, transparent 20px, transparent 10px);
+  background-blend-mode: multiply;
+}
+
+.Background-6 {
+  background-color: #5e5603;
+  opacity: 1;
+  background-image:   linear-gradient(135deg, #ffdb00 25%, transparent 25%), 
+                      linear-gradient(225deg, #ffdb00 25%, transparent 25%), 
+                      linear-gradient(45deg, #ffdb00 25%, transparent 25%), 
+                      linear-gradient(315deg, #ffdb00 25%, #5e5603 25%);
+  background-position:  10px 0, 10px 0, 0 0, 0 0;
+  background-size: 20px 20px;
+  background-repeat: repeat;
+}
+
+.Background-7 {
+  background-color: #00e8ff;
+  opacity: 1;
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(45deg, #0018ce 0, #0018ce 1px, #00e8ff 0, #00e8ff 50%);
+}
+
+.Background-8 {
+  background-color: #ff0045;
+  opacity: 1;
+  background-image:  repeating-linear-gradient(45deg, #cf007d 25%, transparent 25%, transparent 75%, #cf007d 75%, #cf007d), repeating-linear-gradient(45deg, #cf007d 25%, #ff0045 25%, #ff0045 75%, #cf007d 75%, #cf007d);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+}
+
+.Background-9 {
+  background-color: #ffffff;
+  opacity: 1;
+  background-image: radial-gradient( ellipse farthest-corner at 10px 10px , #98b0e0, #98b0e0 50%, #ffffff 50%);
+  background-size: 10px 10px;
+}
+
+.Background-10 {
+  background-color: #8179db;
+  opacity: 1;
+  background-size: 20px 20px;
+  background-image:  repeating-linear-gradient(0deg, #2bf0ea, #2bf0ea 1px, #8179db 1px, #8179db);
 }
 
 button {
@@ -37,7 +114,7 @@ html, body, #root, #root > div, #app, #app>div {
   margin: 2%;
   border-radius: 15px;
   border: 2px solid #D33D7A;
-  background-color: #FEF0EF;
+  background-color: #DFDFDF;
 }
 
 .Popout-Container > a {
@@ -56,13 +133,13 @@ html, body, #root, #root > div, #app, #app>div {
   border: 2px solid #D33D7A;
   color: #D33D7A;
   background-color: #FEF0EF;
-  margin: 6px;
+  margin: 6px 6px 4px 0;
   padding: 0 4px;
   border-radius: 6px;
 }
 
 .Window-Content-Area {
-  padding: 0 8px;
+  padding: 0 16px 16px 16px;
 }
 
 .About-Me {
@@ -76,8 +153,8 @@ html, body, #root, #root > div, #app, #app>div {
 }
 
 .Contact {
-  bottom: 20%;
-  right: 0;
+  top: 10%;
+  left: 15%;
 }
 
 .Clickable-Icon {
@@ -85,7 +162,7 @@ html, body, #root, #root > div, #app, #app>div {
 }
 
 .Clickable-Icon:active {
-  filter:drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.4));
+  filter:drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.2));
 }
 
 .Clickable-Icon {
@@ -127,10 +204,6 @@ html, body, #root, #root > div, #app, #app>div {
   margin: 0 4px;
 }
 
-.Clock {
-
-}
-
 .Clock-Wrapper {
   display: flex;
   justify-content: center;
@@ -141,6 +214,7 @@ html, body, #root, #root > div, #app, #app>div {
   border-right: 2px solid #FFFFFF;
   border-bottom: 2px solid #FFFFFF;
   border-left: 2px solid #808080;
+  height: 32px;
 }
 
 .Bottom-Bar-Border-Wrapper {
@@ -179,13 +253,6 @@ html, body, #root, #root > div, #app, #app>div {
 .Bottom-Bar-Seperator {
   border-left: 1px solid #C0C0C0;
 }
-
-
-
-.Bottom-Bar-Icon:hover {
-  animation: spin infinite 1s linear;
-  cursor: grab;
-}
   
 @-ms-keyframes spin {
   from { -ms-transform: rotate(0deg); }
@@ -212,7 +279,99 @@ html, body, #root, #root > div, #app, #app>div {
   margin: 0 8px;
 }
 
+.Bottom-Bar-Icon:hover {
+  animation: spin infinite 1s linear;
+  cursor: grab;
+}
 
 .React-Img {
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 1));
 }
+
+
+.Bottom-Bar-Right {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+
+.Bottom-Bar-Minimized-Wrapper {
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-left: 4px;
+}
+
+.Bottom-Bar-Minimized-Wrapper:active {
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.Bottom-Bar-Minimized {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-items: left;
+  border-top: 2px solid #DFDFDF;
+  border-left: 2px solid #DFDFDF;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  height: 30px;
+  padding: 0 80px 0 4px;
+}
+
+.Bottom-Bar-Minimized:active {
+  border-bottom: 2px solid #DFDFDF;
+  border-right: 2px solid #DFDFDF;
+  border-left: 2px solid #808080;
+  border-top: 2px solid #808080;
+}
+
+.Bottom-Bar-Minimized > img {
+  height: 28px;
+}
+
+.Bottom-Bar-Minimized > p {
+  margin: 0 0 0 8px;
+}
+
+.No-Style-a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.Start-Button-Wrapper {
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.Start-Button-Wrapper:active {
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.Start-Button {
+  border-top: 2px solid #DFDFDF;
+  border-left: 2px solid #DFDFDF;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+
+.Start-Button:active {
+  border-bottom: 2px solid #DFDFDF;
+  border-right: 2px solid #DFDFDF;
+  border-left: 2px solid #808080;
+  border-top: 2px solid #808080;
+}
+
+img, #banner-img{
+  vertical-align: top;
+  }
