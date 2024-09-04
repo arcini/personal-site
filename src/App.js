@@ -48,7 +48,7 @@ function AboutMe({ setAboutIsOpen }) {
   return (
     <div className="Popout-Container About-Me">
       <div className="Window-Title-Bar">
-        <button className="Window-Close-Button" onClick={() => setAboutIsOpen(false)}>X</button>
+        <button className="Window-Close-Button" onClick={() => setAboutIsOpen(false)}>⨉</button>
       </div>
       <div className="Window-Content-Area">
         <h1>About Me</h1>
@@ -62,7 +62,7 @@ function Projects({ setProjectsIsOpen }) {
   return (
     <div className="Popout-Container Projects">
       <div className="Window-Title-Bar">
-        <button className="Window-Close-Button" onClick={() => setProjectsIsOpen(false)}>X</button>
+        <button className="Window-Close-Button" onClick={() => setProjectsIsOpen(false)}>⨉</button>
       </div>
       <div className="Window-Content-Area">
         <h1>Projects</h1>
@@ -76,7 +76,7 @@ function Contact({ setContactIsOpen }) {
   return (
     <div className="Popout-Container Contact">
       <div className="Window-Title-Bar">
-        <button className="Window-Close-Button" onClick={() => setContactIsOpen(false)}>X</button>
+        <button className="Window-Close-Button" onClick={() => setContactIsOpen(false)}>⨉</button>
       </div>
       <div className="Window-Content-Area">
         <h1>Contact</h1>
@@ -105,12 +105,37 @@ function ClockDiv() {
 }
 
 function BottomBar() {
+  const quickbarHeight = 28;
+
   return (
     <div className="Bottom-Bar-Border-Wrapper">
       <div className="Bottom-Bar">
-        <button>
-          <img src="win98_start.png" height={36} />
-        </button>
+        <div className="Bottom-Bar-Left">
+          <button>
+            <img src="win98_start.png" height={36} />
+          </button>
+          <p className="Bottom-Bar-Pipe"></p>
+          <div className="Bottom-Bar-Seperator-Wrapper">
+            <p className="Bottom-Bar-Seperator"></p>
+          </div>
+          <img className="Bottom-Bar-Icon" src="c.svg" height={quickbarHeight + 1} />
+          <img className="Bottom-Bar-Icon" src="cpp.svg" height={quickbarHeight} />
+          <img className="Bottom-Bar-Icon" src="c-sharp.svg" height={quickbarHeight} />
+          <img className="Bottom-Bar-Icon" src="python.svg" height={quickbarHeight - 1} />
+          <img className="Bottom-Bar-Icon" src="java.svg" height={quickbarHeight} />
+          <img className="Bottom-Bar-Icon" src="html5.svg" height={quickbarHeight} />
+          <img className="Bottom-Bar-Icon" src="css.svg" height={quickbarHeight} />
+          <img className="Bottom-Bar-Icon" src="javascript-js.svg" height={quickbarHeight - 1} />
+          <img className="Bottom-Bar-Icon React-Img" src="react.png" height={quickbarHeight} />
+          <img className="Bottom-Bar-Icon" src="git.svg" height={quickbarHeight - 1} />
+          <p className="Bottom-Bar-Pipe"></p>
+          <div className="Bottom-Bar-Seperator-Wrapper">
+            <p className="Bottom-Bar-Seperator"></p>
+          </div>
+        </div>
+
+
+
         <div className="Clock-Wrapper">
           <ClockDiv />
         </div>
