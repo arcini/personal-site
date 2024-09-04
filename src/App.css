@@ -3,21 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
 
 html {
-  background: rgb(109,191,232);
-  background: linear-gradient(180deg, rgba(109,191,232,1) 0%, rgba(181,117,231,1) 56%, rgba(228,46,162,1) 100%); 
+  background-color: #e8e8e8;
+  opacity: 1;
+  background: linear-gradient(135deg, #bdbdbd55 25%, transparent 25%) -5px 0/ 10px 10px, 
+              linear-gradient(225deg, #bdbdbd 25%, transparent 25%) -5px 0/ 10px 10px, 
+              linear-gradient(315deg, #bdbdbd55 25%, transparent 25%) 0px 0/ 10px 10px, 
+              linear-gradient(45deg, #bdbdbd 25%, #e8e8e8 25%) 0px 0/ 10px 10px;
 }
 
 button {
   all: unset;
   cursor: pointer;
-}
-
-.Icon-Button {
-  filter:drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.3));
-}
-
-.Icon-Button > button:active {
-  filter:drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.45));
 }
 
 html, body, #root, #root > div, #app, #app>div {
@@ -40,99 +36,60 @@ html, body, #root, #root > div, #app, #app>div {
   color: rgb(0, 0, 0);
 }
 
-.Big-Name {
-  color: black;
-  font-family: 'Abril Fatface';
-  font-style: italic;
-  font-size: 15vmax;
-  margin: 0 auto 0 2%;
-}
-
-.Main-List {
-  margin-left: auto;
-  margin-top: auto;
-  margin: auto 2% 2% auto;
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.Main-List-Element {
-  display: flex;
-  filter: blur(5px);
-  flex-flow: row nowrap;
-  transition: filter 400ms;
-}
-
-.Main-List-Element:hover {
-  filter: blur(0px);
-}
-
-.Main-List-Bullet {
-  font-size: 3em;
-}
-
-.Main-List-Text {
-  font-size: 1.75em;
-  font-family: 'Poppins';
-  vertical-align: middle;
-  margin-left: 0.75em;
-  transform: translateY(0.5em);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .Main-List-Bullet {
-    animation: spin infinite 2s linear;
-  }
-}
-
-@-ms-keyframes spin {
-  from { -ms-transform: rotate(0deg); }
-  to { -ms-transform: rotate(360deg); }
-}
-@-moz-keyframes spin {
-  from { -moz-transform: rotate(0deg); }
-  to { -moz-transform: rotate(360deg); }
-}
-@-webkit-keyframes spin {
-  from { -webkit-transform: rotate(0deg); }
-  to { -webkit-transform: rotate(360deg); }
-}
-@keyframes spin {
-  from { 
-    transform: rotate(0deg); 
-  }
-  to { 
-    transform: rotate(360deg); 
-  }
-}
-
 .Popout-Container {
   position: absolute;
   margin: 2%;
-  padding: 0 1em 0.5em 1em;
-  border-radius: 20px;
+  border-radius: 15px;
+  border: 2px solid #D33D7A;
+  background-color: #FEF0EF;
 }
 
 .Popout-Container > a {
   margin: 16px 0;
 }
 
+.Window-Title-Bar {
+  display: flex;
+  justify-content: right;
+  background-color: #E8C2FF;
+  border-bottom: 2px solid #D33D7A;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.Window-Close-Button {
+  border: 2px solid #D33D7A;
+  color: #D33D7A;
+  background-color: #FEF0EF;
+  margin: 6px;
+  padding: 0 8px;
+  border-radius: 6px;
+}
+
+.Window-Content-Area {
+  padding: 0 8px;
+}
+
 .About-Me {
-  background-color: rgba(215, 69, 69, 0.563);
   top: 0;
   right: 0;
 }
 
 .Projects {
-  background-color: rgba(53, 165, 85, 0.563);
-  bottom: 0;
+  bottom: 10%;
   left: 0;
 }
 
 .Contact {
-  background-color: rgba(139, 126, 232, 0.519);
-  top: 20%;
+  bottom: 20%;
   right: 0;
+}
+
+.Clickable-Icon {
+  filter:drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.3));
+}
+
+.Clickable-Icon:active {
+  filter:drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.4));
 }
 
 .Clickable-Icon {
@@ -144,8 +101,9 @@ html, body, #root, #root > div, #app, #app>div {
 
 .Clickable-Icon > p {
   margin: 0.25em 0 0 0;
-  font-family: 'Jacquard 12';
-  font-size: 32px;
+  font-size: 18pt;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  color: black;
 }
 
 .Icons-Container {
@@ -183,7 +141,7 @@ html, body, #root, #root > div, #app, #app>div {
 }
 
 .Clock {
-  
+
 }
 
 .Clock-Wrapper {
@@ -198,3 +156,5 @@ html, body, #root, #root > div, #app, #app>div {
   bottom: 0;
   width: 100%;
 }
+
+

@@ -11,7 +11,7 @@ function MainPage({}) {
 function Icon({imgName, caption}) {
   return (
     <div className="Clickable-Icon">
-      <img src={imgName} width={128}></img>
+      <img src={imgName} width={96}></img>
       <p>{caption}</p>
     </div>
   )
@@ -44,29 +44,44 @@ function Icons({setAboutIsOpen, setProjectsIsOpen, setContactIsOpen}) {
   )
 }
 
-function AboutMe() {
+function AboutMe({ setAboutIsOpen }) {
   return (
     <div className="Popout-Container About-Me">
-      <h1>About Me</h1>
-      <p>Text about me lorem ipsum.</p>
+      <div className="Window-Title-Bar">
+        <button className="Window-Close-Button" onClick={() => setAboutIsOpen(false)}>X</button>
+      </div>
+      <div className="Window-Content-Area">
+        <h1>About Me</h1>
+        <p>Text about me lorem ipsum.</p>
+      </div>
     </div>
   )
 }
 
-function Projects() {
+function Projects({ setProjectsIsOpen }) {
   return (
     <div className="Popout-Container Projects">
-      <h1>Projects</h1>
-      <p>Project stuff</p>
+      <div className="Window-Title-Bar">
+        <button className="Window-Close-Button" onClick={() => setProjectsIsOpen(false)}>X</button>
+      </div>
+      <div className="Window-Content-Area">
+        <h1>Projects</h1>
+        <p>Project stuff</p>
+      </div>
     </div>
   )
 }
 
-function Contact() {
+function Contact({ setContactIsOpen }) {
   return (
     <div className="Popout-Container Contact">
-      <h1>Contact</h1>
-      <a href="mailto:alexrcini@gmail.com">alexrcini@gmail.com</a>
+      <div className="Window-Title-Bar">
+        <button className="Window-Close-Button" onClick={() => setContactIsOpen(false)}>X</button>
+      </div>
+      <div className="Window-Content-Area">
+        <h1>Contact</h1>
+        <a href="mailto:alexrcini@gmail.com">alexrcini@gmail.com</a>
+      </div>
     </div>
   )
 }
@@ -113,9 +128,9 @@ function App() {
     <div>
       <MainPage
       />
-      {aboutIsOpen && <AboutMe />}
-      {projectsIsOpen && <Projects />}
-      {contactIsOpen && <Contact />}
+      {aboutIsOpen && <AboutMe setAboutIsOpen={setAboutIsOpen}/>}
+      {projectsIsOpen && <Projects setProjectsIsOpen={setProjectsIsOpen}/>}
+      {contactIsOpen && <Contact setContactIsOpen={setContactIsOpen}/>}
       <Icons
         setAboutIsOpen={setAboutIsOpen}
         setProjectsIsOpen={setProjectsIsOpen}
