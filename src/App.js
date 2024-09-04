@@ -17,24 +17,24 @@ function Icon({imgName, caption}) {
   )
 }
 
-function Icons({toggleAbout, toggleProjects, toggleContact}) {
+function Icons({setAboutIsOpen, setProjectsIsOpen, setContactIsOpen}) {
   return (
     <div className="Icons-Container">
-      <button onClick={() => toggleAbout() }>
+      <button onClick={() => setAboutIsOpen(true) } className="Icon-Button">
         <Icon 
           imgName='clippy.png'
           caption='About Me'
         />
       </button>
-      <div class="break"></div> 
-      <button onClick={() => toggleProjects() }>
+      <div className="break"></div> 
+      <button onClick={() => setProjectsIsOpen(true) } className="Icon-Button">
         <Icon 
           imgName='projects.png'
           caption='Projects'
         />
       </button>
-      <div class="break"></div> 
-      <button onClick={() => toggleContact() }>
+      <div className="break"></div> 
+      <button onClick={() => setContactIsOpen(true) } className="Icon-Button">
         <Icon 
           imgName='contact_card.png'
           caption='Contact'
@@ -71,22 +71,43 @@ function Contact() {
   )
 }
 
+function ClockDiv() {
+  const [time, setTime] = useState()
+
+  useEffect(() => {
+
+    setInterval(() => {
+
+      const dateObject = new Date()
+      const currentTime = dateObject.toLocaleTimeString();
+      
+      setTime(currentTime)
+    }, 1000)
+
+  }, [])
+
+  return <div className="Clock">{time}</div>
+}
+
+function BottomBar() {
+  return (
+    <div className="Bottom-Bar-Border-Wrapper">
+      <div className="Bottom-Bar">
+        <button>
+          <img src="win98_start.png" height={36} />
+        </button>
+        <div className="Clock-Wrapper">
+          <ClockDiv />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const [aboutIsOpen, setAboutIsOpen] = useState(false);
   const [projectsIsOpen, setProjectsIsOpen] = useState(false);
   const [contactIsOpen, setContactIsOpen] = useState(false);
-
-  const toggleAbout = () => {
-    setAboutIsOpen((aboutIsOpen) => !aboutIsOpen);
-  }
-
-  const toggleProjects = () => {
-    setProjectsIsOpen((projectsIsOpen) => !projectsIsOpen);
-  }
-
-  const toggleContact = () => {
-    setContactIsOpen((contactIsOpen) => !contactIsOpen);
-  }
   
   return (
     <div>
@@ -96,10 +117,11 @@ function App() {
       {projectsIsOpen && <Projects />}
       {contactIsOpen && <Contact />}
       <Icons
-        toggleAbout={toggleAbout}
-        toggleProjects={toggleProjects}
-        toggleContact={toggleContact}
+        setAboutIsOpen={setAboutIsOpen}
+        setProjectsIsOpen={setProjectsIsOpen}
+        setContactIsOpen={setContactIsOpen}
       />
+      <BottomBar />
     </div>
   )
 }

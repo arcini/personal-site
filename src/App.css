@@ -10,11 +10,14 @@ html {
 button {
   all: unset;
   cursor: pointer;
+}
+
+.Icon-Button {
   filter:drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.3));
 }
 
-button:active {
-  filter:drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+.Icon-Button > button:active {
+  filter:drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.45));
 }
 
 html, body, #root, #root > div, #app, #app>div {
@@ -151,4 +154,47 @@ html, body, #root, #root > div, #app, #app>div {
   position: absolute;
   top: 2em;
   left: 2em;
+}
+
+.Bottom-Bar {
+  width: 100%;
+  height: 36px;
+  padding: 3px;
+  border-top: 1px solid #FFFFFF;
+  background: #C0C0C0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  justify-items: right;
+}
+
+.Bottom-Bar > button {
+  padding: 0;
+  margin: 0 4px;
+}
+
+.Bottom-Bar > div {
+  padding: 0 16px;
+  margin: 0 4px;
+  border-top: 2px solid #808080;
+  border-right: 2px solid #FFFFFF;
+  border-bottom: 2px solid #FFFFFF;
+  border-left: 2px solid #808080;
+}
+
+.Clock {
+  
+}
+
+.Clock-Wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Bottom-Bar-Border-Wrapper {
+  border-top: 1px solid #DFDFDF;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
