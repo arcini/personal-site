@@ -27,17 +27,17 @@ function Icons({setAboutIsOpen, setProjectsIsOpen, setContactIsOpen}) {
         />
       </button>
       <div className="break"></div> 
-      <button onClick={() => setProjectsIsOpen(true) } className="Icon-Button">
-        <Icon 
-          imgName='projects.png'
-          caption='Projects'
-        />
-      </button>
-      <div className="break"></div> 
       <button onClick={() => setContactIsOpen(true) } className="Icon-Button">
         <Icon 
           imgName='contact-card.png'
           caption='Contact'
+        />
+      </button>
+      <div className="break"></div> 
+      <button onClick={() => setProjectsIsOpen(true) } className="Icon-Button">
+        <Icon 
+          imgName='projects.png'
+          caption='Projects'
         />
       </button>
     </div>
@@ -52,7 +52,30 @@ function AboutMe({ setAboutIsOpen }) {
       </div>
       <div className="Window-Content-Area">
         <h1>About Me</h1>
-        <p>Text about me lorem ipsum.</p>
+        <div className="Window-Content-Area-Flow Window-Content-Area-Main">
+          <img className="About-Me-Image" src="me.png"/>
+            <p>Hi world!
+                <br />
+                Thanks for stopping by my landing site. <b>My name's Alex</b>, and I'm a young, driven software developer with a passion for computing. 
+                Currently, I develop embedded systems
+                for marine and automotive products.
+                <br />
+                <br />
+                <b><u>Fast Facts:</u></b>
+                <br />
+                <ul>
+                  <li><u>Graduated:</u> May 2023, Penn State University</li>
+                  <br />
+                  <li><u>Location:</u> Wilmington, NC - USA</li>
+                  <br />
+                  <li><u>Current position:</u> Software Engineer @ Sturdy Corporation</li>
+                  <br />
+                  <li><u>Degree:</u> B.S. Computer Engineering</li>
+                  <br />
+                  <li>I can speak and understand Mandarin Chinese!</li>
+                </ul>
+              </p>
+        </div>
       </div>
     </div>
   )
@@ -66,7 +89,9 @@ function Projects({ setProjectsIsOpen }) {
       </div>
       <div className="Window-Content-Area">
         <h1>Projects</h1>
-        <p>Project stuff</p>
+        <div className="Window-Content-Area-Main">
+          <p>Please visit my Github and LinkedIn profiles, accessible below on the taskbar.</p>
+        </div>
       </div>
     </div>
   )
@@ -80,9 +105,11 @@ function Contact({ setContactIsOpen }) {
       </div>
       <div className="Window-Content-Area">
         <h1>Contact</h1>
-        <h3>Alex Cini</h3>
-        <h3>Email: <a href="mailto:alexrcini@gmail.com">alexrcini@gmail.com</a></h3>
-        <h3>Cell: <a href="tel:+13367057799">(336) 705-7799</a></h3>
+        <div className="Window-Content-Area-Main">
+          <h2 style={{fontFamily: 'sans-serif'}}>Alex Cini</h2>
+          <h3 style={{fontFamily: 'sans-serif'}}>Email: <a href="mailto:alexrcini@gmail.com">alexrcini@gmail.com</a></h3>
+          <h3 style={{fontFamily: 'sans-serif'}}>Cell: <a href="tel:+13367057799">(336) 705-7799</a></h3>
+        </div>
       </div>
     </div>
   )
