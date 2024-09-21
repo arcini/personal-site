@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {isMobile} from 'react-device-detect';
 import './App.css';
 
 function MainPage({}) {
@@ -81,6 +82,42 @@ function AboutMe({ setAboutIsOpen }) {
   )
 }
 
+function AboutMe_Mobile({ setAboutIsOpen }) {
+  return (
+    <div className="Popout-Container-Mobile About-Me-Mobile">
+      <div className="Window-Title-Bar">
+        <button className="Window-Close-Button" onClick={() => setAboutIsOpen(false)}>⨉</button>
+      </div>
+      <div className="Window-Content-Area">
+        <h1>About Me</h1>
+        <div className="Window-Content-Area-Flow-Mobile Window-Content-Area-Main-Mobile">
+          <p>Hi world!
+            <br />
+            Thanks for stopping by my landing site. <b>My name's Alex</b>, and I'm a young, driven software developer with a passion for computing. 
+            Currently, I develop embedded systems
+            for marine and automotive products.
+            <br />
+            <br />
+            <b><u>Fast Facts:</u></b>
+            <br />
+            <ul>
+              <li><u>Graduated:</u> May 2023, Penn State University</li>
+              <br />
+              <li><u>Location:</u> Wilmington, NC - USA</li>
+              <br />
+              <li><u>Current position:</u> Software Engineer @ Sturdy Corporation</li>
+              <br />
+              <li><u>Degree:</u> B.S. Computer Engineering</li>
+              <br />
+              <li>I can speak and understand Mandarin Chinese!</li>
+            </ul>
+            </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function Projects({ setProjectsIsOpen }) {
   return (
     <div className="Popout-Container Projects">
@@ -97,6 +134,22 @@ function Projects({ setProjectsIsOpen }) {
   )
 }
 
+function Projects_Mobile({ setProjectsIsOpen }) {
+  return (
+    <div className="Popout-Container-Mobile Projects-Mobile">
+      <div className="Window-Title-Bar">
+        <button className="Window-Close-Button" onClick={() => setProjectsIsOpen(false)}>⨉</button>
+      </div>
+      <div className="Window-Content-Area">
+        <h1>Projects</h1>
+        <div className="Window-Content-Area-Main-Mobile">
+          <p>Please visit my Github and LinkedIn profiles, accessible below on the taskbar.</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function Contact({ setContactIsOpen }) {
   return (
     <div className="Popout-Container Contact">
@@ -106,6 +159,24 @@ function Contact({ setContactIsOpen }) {
       <div className="Window-Content-Area">
         <h1>Contact</h1>
         <div className="Window-Content-Area-Main">
+          <h2 style={{fontFamily: 'sans-serif'}}>Alex Cini</h2>
+          <h3 style={{fontFamily: 'sans-serif'}}>Email: <a href="mailto:alexrcini@gmail.com">alexrcini@gmail.com</a></h3>
+          <h3 style={{fontFamily: 'sans-serif'}}>Cell: <a href="tel:+13367057799">(336) 705-7799</a></h3>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function Contact_Mobile({ setContactIsOpen }) {
+  return (
+    <div className="Popout-Container-Mobile Contact-Mobile">
+      <div className="Window-Title-Bar">
+        <button className="Window-Close-Button" onClick={() => setContactIsOpen(false)}>⨉</button>
+      </div>
+      <div className="Window-Content-Area">
+        <h1>Contact</h1>
+        <div className="Window-Content-Area-Main-Mobile">
           <h2 style={{fontFamily: 'sans-serif'}}>Alex Cini</h2>
           <h3 style={{fontFamily: 'sans-serif'}}>Email: <a href="mailto:alexrcini@gmail.com">alexrcini@gmail.com</a></h3>
           <h3 style={{fontFamily: 'sans-serif'}}>Cell: <a href="tel:+13367057799">(336) 705-7799</a></h3>
@@ -140,6 +211,18 @@ function BottomBarMinimized({ linkURL, imageSource, textContent, quickbarHeight 
       <div className="Bottom-Bar-Minimized">
         <img src={imageSource} height={quickbarHeight} />
         <p>{textContent}</p>
+      </div>
+    </div>
+  </a>
+  )
+}
+
+function BottomBarMinimized_Mobile({ linkURL, imageSource, textContent, quickbarHeight }) {
+  return (
+    <a className="No-Style-a" href={linkURL} target="_blank" rel="noopener noreferrer">
+    <div className="Bottom-Bar-Minimized-Wrapper">
+      <div className="Bottom-Bar-Minimized-Mobile">
+        <img src={imageSource} height={quickbarHeight} />
       </div>
     </div>
   </a>
@@ -201,6 +284,44 @@ function BottomBar({ changeBackground }) {
   )
 }
 
+function BottomBar_Mobile({ changeBackground }) {
+  const quickbarHeight = 28;
+  return (
+    <div className="Bottom-Bar-Border-Wrapper">
+      <div className="Bottom-Bar">
+        <div className="Bottom-Bar-Left">
+          <button onClick={changeBackground}>
+            <div className="Start-Button-Wrapper">
+              <img className="Start-Button" src="win98_start.png" height={30} />
+            </div>
+          </button>
+          <p className="Bottom-Bar-Pipe"></p>
+          <div className="Bottom-Bar-Seperator-Wrapper">
+            <p className="Bottom-Bar-Seperator"></p>
+          </div>
+          <BottomBarMinimized_Mobile 
+            linkURL='https://github.com/arcini'
+            imageSource='github.svg'
+            textContent='My Github'
+            quickbarHeight={quickbarHeight}/>
+          <BottomBarMinimized_Mobile 
+            linkURL='https://www.linkedin.com/in/alex-c-68b1a6137/'
+            imageSource='linkedin.svg'
+            textContent='My LinkedIn'
+            quickbarHeight={quickbarHeight}/>
+        </div>
+
+        <div className="Bottom-Bar-Right">
+          <p className="Bottom-Bar-Pipe"></p>
+          <div className="Clock-Wrapper">
+            <ClockDiv />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const [aboutIsOpen, setAboutIsOpen] = useState(false);
   const [projectsIsOpen, setProjectsIsOpen] = useState(false);
@@ -241,11 +362,29 @@ function App() {
         break;
     }
   };
+
+  // Tell mobile user to get on their computer!
+  if (isMobile) {
+    return (
+      <div className={backgroundClassName}>
+        <MainPage />
+        {aboutIsOpen && <AboutMe_Mobile setAboutIsOpen={setAboutIsOpen}/>}
+        {projectsIsOpen && <Projects_Mobile setProjectsIsOpen={setProjectsIsOpen}/>}
+        {contactIsOpen && <Contact_Mobile setContactIsOpen={setContactIsOpen}/>}
+        <Icons
+          setAboutIsOpen={setAboutIsOpen}
+          setProjectsIsOpen={setProjectsIsOpen}
+          setContactIsOpen={setContactIsOpen}
+        />
+        <BottomBar_Mobile
+          changeBackground={changeBackground} />
+      </div>
+    )
+  }
   
   return (
     <div className={backgroundClassName}>
-      <MainPage
-      />
+      <MainPage />
       {aboutIsOpen && <AboutMe setAboutIsOpen={setAboutIsOpen}/>}
       {projectsIsOpen && <Projects setProjectsIsOpen={setProjectsIsOpen}/>}
       {contactIsOpen && <Contact setContactIsOpen={setContactIsOpen}/>}
